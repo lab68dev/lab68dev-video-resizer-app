@@ -14,7 +14,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/lab68dev-logo.png"
+              src="/images/lab68dev_logo.png"
               alt="Lab68dev Logo"
               width={120}
               height={40}
