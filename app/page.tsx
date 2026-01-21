@@ -2,8 +2,8 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { HowItWorks } from "@/components/how-it-works"
 import { PlatformPresets } from "@/components/platform-presets"
-import { VideoResizer } from "@/components/video-resizer"
 import { Footer } from "@/components/footer"
+import { VideoResizerWrapper } from "@/components/video-resizer-wrapper"
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <PlatformPresets />
-      <VideoResizer />
+      <VideoResizerWrapper />
       <Footer />
     </main>
   )
