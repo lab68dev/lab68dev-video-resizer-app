@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description:
     "Fast, accurate video resizing tool built for creators. Resize videos for TikTok, Instagram Reels, YouTube Shorts, X, and more.",
   generator: "Lab68dev",
+  icons: {
+    icon: "/images/favicon.ico",
+  },
 }
 
 export default function RootLayout({
