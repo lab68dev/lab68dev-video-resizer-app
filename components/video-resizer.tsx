@@ -145,7 +145,18 @@ export function VideoResizer() {
              filter = `scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2`;
         }
 
-        await ffmpeg.exec(['-i', inputName, '-vf', filter, outputName]);
+        // Execute FFmpeg with proper encoding settings
+        await ffmpeg.exec([
+            '-i', inputName,
+            '-vf', filter,
+            '-c:v', 'libx264',    // Use H.264 codec for video
+            '-preset', 'fast',    // Balance between speed and quality
+            '-crf', '23',         // Constant Rate Factor (quality: 0-51, lower is better)
+            '-c:a', 'aac',        // Use AAC codec for audio
+            '-b:a', '128k',       // Audio bitrate
+            '-movflags', '+faststart', // Optimize for web streaming
+            outputName
+        ]);
         
         const data = await ffmpeg.readFile(outputName);
         const url = URL.createObjectURL(new Blob([data as any], { type: 'video/mp4' }));
